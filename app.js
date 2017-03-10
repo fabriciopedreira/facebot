@@ -393,6 +393,10 @@ function receivedMessage(event) {
       case 'account linking':
         sendAccountLinking(senderID);
         break;
+        
+      case 'mariana':
+    	  sendTextMessage(senderID, "Amor da minha vida");
+          break;  
 
       default:
         sendTextMessage(senderID, messageText);
