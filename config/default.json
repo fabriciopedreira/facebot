@@ -1,8 +1,10 @@
 {
-    "appSecret": "d5fd460259d65fc03f787630e2708c27",
-    "pageAccessToken": "EAADyrp6tNoABACC8f4qNCv1T1oUymMZBQaveAVzzQR8Az08QetyzfyZBKhM8SdvPZBWj2ZCAYEs9mrdLEWvnqFUXZBfS3SvPobxT57dhEyg86cK9yTlI64krHHsuyFu42VAdaxvCvfeuNeopvtXIGhCR3uUKb1bjSMFblaCWpwQZDZD",
-    "validationToken": "labbsr0x",
-    "serverURL": "https://bot.labbs.com.br",
+    "appSecret": "8074d50961ed182733a9d7d5c3475192",
+    "pageAccessToken": "EAAXQjB2ZCgtABAFAcCzAbOkU0jsWZAubmtxnDVmkiQNoKuG9I4cXNNNT9dDDSua6D2Wfq6hPFg7tsRQyg0Nx2nlDXJxVeZBBblrc1tGfPrcqCM0Uw8pZCxUoKl0OmouwyOhVZCdxnirXiCg5ttkKud7wdfaAvXIEtP40JTZAgkHgZDZD",
+    "validationToken": "testeFabricio",
+    "serverURL": "https://still-harbor-86662.herokuapp.com",
     "bbAgenciasApiKey": "647e3271384847ed826d9f8ca8ee0874",
     "googleStaticMapApiKey": "AIzaSyA4Dt4VSzPe8sQbUCu6mAIzxM1tm7ajoBU"
 }
+
+
