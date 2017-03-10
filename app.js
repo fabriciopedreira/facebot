@@ -337,43 +337,108 @@ function receivedMessage(event) {
   }
 
   if (messageText) {
+
     // If we receive a text message, check to see if it matches any special
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
-    var messageTextASCII = unidecode(messageText).replace(/[^a-zA-Z0-9 ]/g, "").toUpperCase();
-
-    var classification = classifier.classify(messageTextASCII);
-
-    var messageData = {text: messageTextASCII, type:'message'};
-
-    switch (classification) {
-      case 'find_agencia_nome':
-        sendAgenciaMessage(senderID, messageData, classification);
-        break;
-      case 'find_agencia_prefixo':
-        sendAgenciaMessage(senderID, messageData, classification);
+    switch (messageText) {
+      case 'image':
+        sendImageMessage(senderID);
         break;
 
-      case 'find_agencia_cidade':
-        sendAgenciaMessage(senderID, messageData, classification);
+      case 'gif':
+        sendGifMessage(senderID);
         break;
-      case 'find_agencia_localizacao':
-        sendAgenciaMessage(senderID, messageData, classification);
+
+      case 'audio':
+        sendAudioMessage(senderID);
         break;
+
+      case 'video':
+        sendVideoMessage(senderID);
+        break;
+
+      case 'file':
+        sendFileMessage(senderID);
+        break;
+
+      case 'button':
+        sendButtonMessage(senderID);
+        break;
+
+      case 'generic':
+        sendGenericMessage(senderID);
+        break;
+
+      case 'receipt':
+        sendReceiptMessage(senderID);
+        break;
+
+      case 'quick reply':
+        sendQuickReply(senderID);
+        break;        
+
+      case 'read receipt':
+        sendReadReceipt(senderID);
+        break;        
+
+      case 'typing on':
+        sendTypingOn(senderID);
+        break;        
+
+      case 'typing off':
+        sendTypingOff(senderID);
+        break;        
+
+      case 'account linking':
+        sendAccountLinking(senderID);
+        break;
+
       default:
-        sendDefaultMessage(senderID);
+        sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
-    if (usersLocationConfirmation.indexOf(senderID)>-1 && messageAttachments.length==1 && messageAttachments[0].type == 'location') {
-      var indexUser=usersLocationConfirmation.indexOf(senderID);
-      usersLocationConfirmation.splice(indexUser,1);
-      var location = messageAttachments[0].payload;
-      var messageData = {title:messageAttachments[0].title,latitude:location.coordinates.lat, longitude:location.coordinates.long, raio_metros: 2000, type: 'location'}
-      sendAgenciaMessage(senderID,messageData,'find_agencia_posicao');
-    } else {
-      sendTextMessage(senderID, "Anexo recebido com sucesso!");
-    }
+    sendTextMessage(senderID, "Message with attachment received");
   }
+  
+//  if (messageText) {
+//    // If we receive a text message, check to see if it matches any special
+//    // keywords and send back the corresponding example. Otherwise, just echo
+//    // the text we received.
+//    var messageTextASCII = unidecode(messageText).replace(/[^a-zA-Z0-9 ]/g, "").toUpperCase();
+//
+//    var classification = classifier.classify(messageTextASCII);
+//
+//    var messageData = {text: messageTextASCII, type:'message'};
+//
+//    switch (classification) {
+//      case 'find_agencia_nome':
+//        sendAgenciaMessage(senderID, messageData, classification);
+//        break;
+//      case 'find_agencia_prefixo':
+//        sendAgenciaMessage(senderID, messageData, classification);
+//        break;
+//
+//      case 'find_agencia_cidade':
+//        sendAgenciaMessage(senderID, messageData, classification);
+//        break;
+//      case 'find_agencia_localizacao':
+//        sendAgenciaMessage(senderID, messageData, classification);
+//        break;
+//      default:
+//        sendDefaultMessage(senderID);
+//    }
+//  } else if (messageAttachments) {
+//    if (usersLocationConfirmation.indexOf(senderID)>-1 && messageAttachments.length==1 && messageAttachments[0].type == 'location') {
+//      var indexUser=usersLocationConfirmation.indexOf(senderID);
+//      usersLocationConfirmation.splice(indexUser,1);
+//      var location = messageAttachments[0].payload;
+//      var messageData = {title:messageAttachments[0].title,latitude:location.coordinates.lat, longitude:location.coordinates.long, raio_metros: 2000, type: 'location'}
+//      sendAgenciaMessage(senderID,messageData,'find_agencia_posicao');
+//    } else {
+//      sendTextMessage(senderID, "Anexo recebido com sucesso!");
+//    }
+//  }
 }
 
 
