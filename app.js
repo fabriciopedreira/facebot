@@ -74,8 +74,8 @@ classifier.train();
 
 var app = express();
 
-//app.set('port', process.env.PORT || 5000);
-app.set('port', 8080);
+app.set('port', process.env.PORT || 5000);
+//app.set('port', 8080);
 app.set('view engine', 'ejs');
 app.use(bodyParser.json({ verify: verifyRequestSignature }));
 app.use(express.static('public'));
