@@ -309,11 +309,11 @@ function receivedMessage(event) {
 //        break;
         
       case 'contafacil':
-   	    sendButtonContaFacilMessage(senderID);
+    	sendContaFacilTemplateMessage(senderID);
    	    break;
    	        	  
-      default:
-        sendTextMessage(senderID, "Por favor digite um comando válido.");
+      default:        
+    	sendQuickReplyContaFacil(senderID);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -370,7 +370,7 @@ function receivedPostback(event) {
   // let them know it was successful
   console.log("receivedPostback payload = "+payload);
   if(payload == "CONTA_FACIL"){
-	  sendContaFacilMessage(senderID);
+	  sendContaFacilTemplateMessage(senderID);
   }else{
 	  sendTextMessage(senderID, "Postback called");
   }
@@ -614,7 +614,7 @@ function sendButtonContaFacilMessage(recipientId) {
   callSendAPI(messageData);
 }
 
-function sendContaFacilMessage(recipientId) {
+function sendContaFacilTemplateMessage(recipientId) {
 	console.log(SERVER_URL); 
 	var messageData = {
 	    recipient: {
@@ -636,6 +636,27 @@ function sendContaFacilMessage(recipientId) {
 	    }
 	  };  
 
+	  callSendAPI(messageData);
+	}
+
+
+	function sendQuickReplyContaFacil(recipientId) {
+	  var messageData = {
+	    recipient: {
+	      id: recipientId
+	    },
+	    message: {
+	      text: "Por favor escolha uma opção válida",
+	      quick_replies: [
+	        {
+	          "content_type":"text",
+	          "title":"Abrir conta fácil",
+	          "payload":"contafacil"
+	        }
+	      ]
+	    }
+	  };
+	
 	  callSendAPI(messageData);
 	}
 
