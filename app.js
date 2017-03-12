@@ -425,7 +425,8 @@ function sendImageMessage(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "/assets/rift.png"
+          //url: SERVER_URL + "/assets/rift.png"
+          url: "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"        	  
         }
       }
     }
