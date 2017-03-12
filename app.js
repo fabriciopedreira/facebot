@@ -629,31 +629,7 @@ function sendContaFacilMessage(recipientId) {
 	            title: "Conta Fácil",
 	            subtitle: "Abra sua conta sem sair de casa",
 	            item_url: "http://www.bb.com.br",               
-	            //image_url: SERVER_URL + "/assets/rift.png",
 	            image_url: "http://contaembanco.com.br/wp-content/uploads/2015/11/Ourocard-Conta-F%C3%A1cil.png",
-	            buttons: [{
-	              type: "web_url",
-	              url: "https://www.oculus.com/en-us/rift/",
-	              title: "Open Web URL"
-	            }, {
-	              type: "postback",
-	              title: "Call Postback",
-	              payload: "Payload for first bubble",
-	            }],
-	          }, {
-	            title: "touch",
-	            subtitle: "Your Hands, Now in VR",
-	            item_url: "https://www.oculus.com/en-us/touch/",               
-	            image_url: SERVER_URL + "/assets/touch.png",
-	            buttons: [{
-	              type: "web_url",
-	              url: "https://www.oculus.com/en-us/touch/",
-	              title: "Open Web URL"
-	            }, {
-	              type: "postback",
-	              title: "Call Postback",
-	              payload: "Payload for second bubble",
-	            }]
 	          }]
 	        }
 	      }
