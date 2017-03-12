@@ -245,6 +245,9 @@ function receivedMessage(event) {
     console.log("Quick reply for message %s with payload %s",
       messageId, quickReplyPayload);
 
+    if(quickReplyPayload == "Abrir conta fácil"){
+    	sendContaFacilTemplateMessage(senderID);
+    }
     sendTextMessage(senderID, "Quick reply tapped");
     return;
   }
