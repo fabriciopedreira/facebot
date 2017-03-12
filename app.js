@@ -613,42 +613,42 @@ function sendListContaFacilMessage(recipientId) {
 					elements : [
 							{
 								title : "Classic T-Shirt Collection",
-								image_url : "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+								image_url : "https://www.google.com.br/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
 								subtitle : "See all our colors",
 								default_action : {
 									"type" : "web_url",
-									"url" : "https://peterssendreceiveapp.ngrok.io/shop_collection",
+									"url" : "http://www.google.com",
 									"messenger_extensions" : true,
 									"webview_height_ratio" : "tall",
-									"fallback_url" : "https://peterssendreceiveapp.ngrok.io/"
+									"fallback_url" : "http://www.globo.com/"
 								},
 								buttons : [ {
 									title : "View",
 									type : "web_url",
-									url : "https://peterssendreceiveapp.ngrok.io/collection",
+									url : "http://www.google.com",
 									messenger_extensions : "true",
 									webview_height_ratio : "tall",
-									fallback_url : "https://peterssendreceiveapp.ngrok.io/"
+									fallback_url : "http://www.globo.com/"
 								} ]
 							},
 							{
 								title : "Classic White T-Shirt",
-								image_url : "https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png",
+								image_url : "https://www.google.com.br/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
 								subtitle : "100% Cotton, 200% Comfortable",
 								default_action : {
 									type : "web_url",
-									url : "https://peterssendreceiveapp.ngrok.io/view?item=100",
+									url : "http://www.google.com",
 									messenger_extensions : true,
 									webview_height_ratio : "tall",
-									fallback_url : "https://peterssendreceiveapp.ngrok.io/"
+									fallback_url : "http://www.globo.com/"
 								},
 								buttons : [ {
 									title : "Shop Now",
 									type : "web_url",
-									url : "https://peterssendreceiveapp.ngrok.io/shop?item=100",
+									url : "http://www.google.com",
 									messenger_extensions : true,
 									webview_height_ratio : "tall",
-									fallback_url : "https://peterssendreceiveapp.ngrok.io/"
+									fallback_url : "http://www.globo.com/"
 								} ]
 							} ]
 				}
