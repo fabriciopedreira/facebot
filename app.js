@@ -368,7 +368,7 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  console.log("payload = "+payload);
+  console.log("receivedPostback payload = "+payload);
   if(payload == "CONTA_FACIL"){
 	  sendContaFacilMessage(senderID);
   }else{
@@ -615,7 +615,8 @@ function sendButtonContaFacilMessage(recipientId) {
 }
 
 function sendContaFacilMessage(recipientId) {
-	  var messageData = {
+	console.log(SERVER_URL); 
+	var messageData = {
 	    recipient: {
 	      id: recipientId
 	    },
@@ -627,7 +628,7 @@ function sendContaFacilMessage(recipientId) {
 	          elements: [{
 	            title: "Conta Fácil",
 	            subtitle: "Abra sua conta sem sair de casa",
-	            item_url: "https://www.oculus.com/en-us/rift/",               
+	            item_url: "http://www.bb.com.br",               
 	            image_url: SERVER_URL + "/assets/rift.png",
 	            buttons: [{
 	              type: "web_url",
