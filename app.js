@@ -310,7 +310,11 @@ function receivedMessage(event) {
       case 'contafacil':
    	    sendButtonContaFacilMessage(senderID);
    	    break;
-    	  
+   	  
+      case 'contafacillist':
+    	  sendListContaFacilMessage(senderID);
+ 	    break;
+   	        	  
       default:
         sendTextMessage(senderID, messageText);
     }
@@ -573,6 +577,30 @@ function sendButtonMessage(recipientId) {
 }
 
 function sendButtonContaFacilMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "Conta Fácil",
+          buttons:[{
+            type: "web_url",
+            url: "http://www.globo.com",
+            title: "Abrir Conta Fácil"
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
+
+function sendListContaFacilMessage(recipientId) {
 	  var messageData = {
 	    recipient: {
 	      id: recipientId
@@ -581,17 +609,43 @@ function sendButtonContaFacilMessage(recipientId) {
 	      attachment: {
 	        type: "template",
 	        payload: {
-	          template_type: "button",
-	          text: "Conta Fácil",
-	          buttons:[{
-	            type: "web_url",
-	            url: "http://www.globo.com",
-	            title: "Abrir Conta Fácil"
-	          }]
+	            template_type: "list",
+	            elements: [{
+                    title: "Classic T-Shirt Collection",
+                    image_url: "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                    subtitle: "See all our colors",
+                    default_action: {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    },
+                    buttons: [{
+                        title: "View",
+                        type: "web_url",
+                        url: "https://peterssendreceiveapp.ngrok.io/collection",
+                        messenger_extensions: "true",
+                        webview_height_ratio: "tall",
+                        fallback_url: "https://peterssendreceiveapp.ngrok.io/"                        
+                    }]
+	            }]
 	        }
 	      }
 	    }
 	  };  
+	  
+	  
+	  
+//	  payload: {
+//          template_type: "button",
+//          text: "Conta Fácil",
+//          buttons:[{
+//            type: "web_url",
+//            url: "http://www.globo.com",
+//            title: "Abrir Conta Fácil"
+//          }]
+//        }
 
 	  callSendAPI(messageData);
 	}
