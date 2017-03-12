@@ -585,7 +585,7 @@ function sendButtonContaFacilMessage(recipientId) {
 	          text: "Conta Fácil",
 	          buttons:[{
 	            type: "web_url",
-	            url: "https://www.globo.com",
+	            url: "http://www.globo.com",
 	            title: "Abrir Conta Fácil"
 	          }]
 	        }
