@@ -245,10 +245,12 @@ function receivedMessage(event) {
     console.log("Quick reply for message %s with payload %s",
       messageId, quickReplyPayload);
 
+    console.log("quickReplyPayload: "+quickReplyPayload);
     if(quickReplyPayload == "Abrir conta fácil"){
     	sendContaFacilTemplateMessage(senderID);
+    }else{
+    	sendTextMessage(senderID, "Quick reply tapped");
     }
-    sendTextMessage(senderID, "Quick reply tapped");
     return;
   }
 
