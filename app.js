@@ -582,7 +582,7 @@ function sendButtonContaFacilMessage(recipientId) {
 	        type: "template",
 	        payload: {
 	          template_type: "button",
-	          text: "",
+	          text: "Conta Fácil",
 	          buttons:[{
 	            type: "web_url",
 	            url: "https://www.globo.com",
