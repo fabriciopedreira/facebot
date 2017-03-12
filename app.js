@@ -255,68 +255,65 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
-      case 'image':
-        sendImageMessage(senderID);
-        break;
-
-      case 'gif':
-        sendGifMessage(senderID);
-        break;
-
-      case 'audio':
-        sendAudioMessage(senderID);
-        break;
-
-      case 'video':
-        sendVideoMessage(senderID);
-        break;
-
-      case 'file':
-        sendFileMessage(senderID);
-        break;
-
-      case 'button':
-        sendButtonMessage(senderID);
-        break;
-
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
-
-      case 'receipt':
-        sendReceiptMessage(senderID);
-        break;
-
-      case 'quick reply':
-        sendQuickReply(senderID);
-        break;        
-
-      case 'read receipt':
-        sendReadReceipt(senderID);
-        break;        
-
-      case 'typing on':
-        sendTypingOn(senderID);
-        break;        
-
-      case 'typing off':
-        sendTypingOff(senderID);
-        break;        
-
-      case 'account linking':
-        sendAccountLinking(senderID);
-        break;
+      
+//      case 'image':
+//        sendImageMessage(senderID);
+//        break;
+//
+//      case 'gif':
+//        sendGifMessage(senderID);
+//        break;
+//
+//      case 'audio':
+//        sendAudioMessage(senderID);
+//        break;
+//
+//      case 'video':
+//        sendVideoMessage(senderID);
+//        break;
+//
+//      case 'file':
+//        sendFileMessage(senderID);
+//        break;
+//
+//      case 'button':
+//        sendButtonMessage(senderID);
+//        break;
+//
+//      case 'generic':
+//        sendGenericMessage(senderID);
+//        break;
+//
+//      case 'receipt':
+//        sendReceiptMessage(senderID);
+//        break;
+//
+//      case 'quick reply':
+//        sendQuickReply(senderID);
+//        break;        
+//
+//      case 'read receipt':
+//        sendReadReceipt(senderID);
+//        break;        
+//
+//      case 'typing on':
+//        sendTypingOn(senderID);
+//        break;        
+//
+//      case 'typing off':
+//        sendTypingOff(senderID);
+//        break;        
+//
+//      case 'account linking':
+//        sendAccountLinking(senderID);
+//        break;
         
       case 'contafacil':
    	    sendButtonContaFacilMessage(senderID);
    	    break;
-   	  
-      case 'contafacillist':
-    	  sendListContaFacilMessage(senderID);
- 	    break;
    	        	  
       default:
-        sendTextMessage(senderID, messageText);
+        sendTextMessage(senderID, "Por favor digite um comando válido.");
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -371,7 +368,12 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  sendTextMessage(senderID, "Postback called");
+  console.log("payload = "+payload);
+  if(payload == "CONTA_FACIL"){
+	  sendContaFacilMessage(senderID);
+  }else{
+	  sendTextMessage(senderID, "Postback called");
+  }
 }
 
 /*
@@ -577,6 +579,17 @@ function sendButtonMessage(recipientId) {
   callSendAPI(messageData);
 }
 
+
+/*
+ * Area Customizada
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */
+
 function sendButtonContaFacilMessage(recipientId) {
   var messageData = {
     recipient: {
@@ -601,76 +614,124 @@ function sendButtonContaFacilMessage(recipientId) {
   callSendAPI(messageData);
 }
 
-function sendListContaFacilMessage(recipientId) {
-	var messageData = {
-		recipient : {
-			id : recipientId
-		},
-		message : {
-			attachment : {
-				type : "template",
-				payload : {
-					template_type : "list",
-					elements : [
-							{
-								title : "Classic T-Shirt Collection",
-								image_url : "https://www.google.com.br/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-								subtitle : "See all our colors",
-								default_action : {
-									"type" : "web_url",
-									"url" : "https://www.google.com",
-									"messenger_extensions" : true,
-									"webview_height_ratio" : "tall",
-									"fallback_url" : "http://www.globo.com/"
-								},
-								buttons : [ {
-									title : "View",
-									type : "web_url",
-									url : "https://www.google.com",
-									messenger_extensions : "true",
-									webview_height_ratio : "tall",
-									fallback_url : "http://www.globo.com/"
-								} ]
-							},
-							{
-								title : "Classic White T-Shirt",
-								image_url : "https://www.google.com.br/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-								subtitle : "100% Cotton, 200% Comfortable",
-								default_action : {
-									type : "web_url",
-									url : "https://www.google.com",
-									messenger_extensions : true,
-									webview_height_ratio : "tall",
-									fallback_url : "http://www.globo.com/"
-								},
-								buttons : [ {
-									title : "Shop Now",
-									type : "web_url",
-									url : "https://www.google.com",
-									messenger_extensions : true,
-									webview_height_ratio : "tall",
-									fallback_url : "http://www.globo.com/"
-								} ]
-							} ]
-				}
-			}
-		}
-	};  
-	  
-	  
-	  
-// payload: {
-// template_type: "button",
-// text: "Conta Fácil",
-// buttons:[{
-// type: "web_url",
-// url: "http://www.globo.com",
-// title: "Abrir Conta Fácil"
-// }]
-// }
+function sendContaFacilMessage(recipientId) {
+	  var messageData = {
+	    recipient: {
+	      id: recipientId
+	    },
+	    message: {
+	      attachment: {
+	        type: "template",
+	        payload: {
+	          template_type: "generic",
+	          elements: [{
+	            title: "Conta Fácil",
+	            subtitle: "Abra sua conta sem sair de casa",
+	            item_url: "https://www.oculus.com/en-us/rift/",               
+	            image_url: SERVER_URL + "/assets/rift.png",
+	            buttons: [{
+	              type: "web_url",
+	              url: "https://www.oculus.com/en-us/rift/",
+	              title: "Open Web URL"
+	            }, {
+	              type: "postback",
+	              title: "Call Postback",
+	              payload: "Payload for first bubble",
+	            }],
+	          }, {
+	            title: "touch",
+	            subtitle: "Your Hands, Now in VR",
+	            item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/touch.png",
+	            buttons: [{
+	              type: "web_url",
+	              url: "https://www.oculus.com/en-us/touch/",
+	              title: "Open Web URL"
+	            }, {
+	              type: "postback",
+	              title: "Call Postback",
+	              payload: "Payload for second bubble",
+	            }]
+	          }]
+	        }
+	      }
+	    }
+	  };  
 
 	  callSendAPI(messageData);
 	}
+
+/*
+ * FIM Area Customizada
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */
+
+//function sendListContaFacilMessage(recipientId) {
+//	var messageData = {
+//		recipient : {
+//			id : recipientId
+//		},
+//		message : {
+//			attachment : {
+//				type : "template",
+//				payload : {
+//					template_type : "list",
+//					elements : [
+//							{
+//								title : "Classic T-Shirt Collection",
+//								image_url : "https://www.google.com.br/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+//								subtitle : "See all our colors",
+//								default_action : {
+//									"type" : "web_url",
+//									"url" : "https://www.google.com",
+//									"messenger_extensions" : true,
+//									"webview_height_ratio" : "tall",
+//									"fallback_url" : "http://www.globo.com/"
+//								},
+//								buttons : [ {
+//									title : "View",
+//									type : "web_url",
+//									url : "https://www.google.com",
+//									messenger_extensions : "true",
+//									webview_height_ratio : "tall",
+//									fallback_url : "http://www.globo.com/"
+//								} ]
+//							},
+//							{
+//								title : "Classic White T-Shirt",
+//								image_url : "https://www.google.com.br/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+//								subtitle : "100% Cotton, 200% Comfortable",
+//								default_action : {
+//									type : "web_url",
+//									url : "https://www.google.com",
+//									messenger_extensions : true,
+//									webview_height_ratio : "tall",
+//									fallback_url : "http://www.globo.com/"
+//								},
+//								buttons : [ {
+//									title : "Shop Now",
+//									type : "web_url",
+//									url : "https://www.google.com",
+//									messenger_extensions : true,
+//									webview_height_ratio : "tall",
+//									fallback_url : "http://www.globo.com/"
+//								} ]
+//							} ]
+//				}
+//			}
+//		}
+//	};  
+//	  
+//	  
+//
+//
+//	  callSendAPI(messageData);
+//	}
 
 /*
  * Send a Structured Message (Generic Message type) using the Send API.
