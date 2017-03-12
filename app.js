@@ -617,7 +617,7 @@ function sendListContaFacilMessage(recipientId) {
 								subtitle : "See all our colors",
 								default_action : {
 									"type" : "web_url",
-									"url" : "http://www.google.com",
+									"url" : "https://www.google.com",
 									"messenger_extensions" : true,
 									"webview_height_ratio" : "tall",
 									"fallback_url" : "http://www.globo.com/"
@@ -625,7 +625,7 @@ function sendListContaFacilMessage(recipientId) {
 								buttons : [ {
 									title : "View",
 									type : "web_url",
-									url : "http://www.google.com",
+									url : "https://www.google.com",
 									messenger_extensions : "true",
 									webview_height_ratio : "tall",
 									fallback_url : "http://www.globo.com/"
@@ -637,7 +637,7 @@ function sendListContaFacilMessage(recipientId) {
 								subtitle : "100% Cotton, 200% Comfortable",
 								default_action : {
 									type : "web_url",
-									url : "http://www.google.com",
+									url : "https://www.google.com",
 									messenger_extensions : true,
 									webview_height_ratio : "tall",
 									fallback_url : "http://www.globo.com/"
@@ -645,7 +645,7 @@ function sendListContaFacilMessage(recipientId) {
 								buttons : [ {
 									title : "Shop Now",
 									type : "web_url",
-									url : "http://www.google.com",
+									url : "https://www.google.com",
 									messenger_extensions : true,
 									webview_height_ratio : "tall",
 									fallback_url : "http://www.globo.com/"
