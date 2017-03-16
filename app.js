@@ -379,8 +379,7 @@ function receivedPostback(event) {
   // let them know it was successful
   console.log("receivedPostback payload = "+payload);
   if(payload == "CONTA_FACIL"){
-	  //sendContaFacilTemplateMessage(senderID);
-	  sendQuickReplyContaFacil(senderID);
+	  sendContaFacilTemplateMessage(senderID);
   }else{
 	  sendTextMessage(senderID, "Postback called");
   }
