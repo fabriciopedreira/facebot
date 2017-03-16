@@ -638,7 +638,7 @@ function sendContaFacilTemplateMessage(recipientId) {
           elements: [{
             title: "Conta Fácil",
             subtitle: "Abra sua conta sem sair de casa",
-            item_url: "http://abertura-web.labbs.com.br?fbId="+recipientId,               
+            item_url: "http://abertura-front.labbs.com.br?fbId="+recipientId,               
             image_url: "http://contaembanco.com.br/wp-content/uploads/2015/11/Ourocard-Conta-F%C3%A1cil.png",
           }]
         }
