@@ -249,9 +249,9 @@ function receivedMessage(event) {
     if(quickReplyPayload == "contafacil"){
     	sendContaFacilTemplateMessage(senderID);
     }else if(quickReplyPayload == "site"){
-    	sendContaFacilTemplateMessage(senderID);
+    	sendProdutosServicosTemplateMessage(senderID);
     }else if(quickReplyPayload == "conta"){
-    	sendContaFacilTemplateMessage(senderID);
+    	sendAcesseContaTemplateMessage(senderID);
     }else{
     	sendTextMessage(senderID, "Quick reply tapped");
     }
@@ -379,7 +379,8 @@ function receivedPostback(event) {
   // let them know it was successful
   console.log("receivedPostback payload = "+payload);
   if(payload == "CONTA_FACIL"){
-	  sendContaFacilTemplateMessage(senderID);
+	  sendQuickReplyContaFacil(senderID);
+	  //sendContaFacilTemplateMessage(senderID);
   }else{
 	  sendTextMessage(senderID, "Postback called");
   }
