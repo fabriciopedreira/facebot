@@ -248,6 +248,10 @@ function receivedMessage(event) {
     console.log("quickReplyPayload: "+quickReplyPayload);
     if(quickReplyPayload == "contafacil"){
     	sendContaFacilTemplateMessage(senderID);
+    }else if(quickReplyPayload == "site"){
+    	sendContaFacilTemplateMessage(senderID);
+    }else if(quickReplyPayload == "conta"){
+    	sendContaFacilTemplateMessage(senderID);
     }else{
     	sendTextMessage(senderID, "Quick reply tapped");
     }
@@ -594,7 +598,7 @@ function sendButtonMessage(recipientId) {
  * 
  * 
  * */
-
+/*
 function sendButtonContaFacilMessage(recipientId) {
   var messageData = {
     recipient: {
@@ -617,53 +621,115 @@ function sendButtonContaFacilMessage(recipientId) {
   };  
 
   callSendAPI(messageData);
-}
+}*/
 
 function sendContaFacilTemplateMessage(recipientId) {
 	console.log(SERVER_URL); 
 	var messageData = {
-	    recipient: {
-	      id: recipientId
-	    },
-	    message: {
-	      attachment: {
-	        type: "template",
-	        payload: {
-	          template_type: "generic",
-	          elements: [{
-	            title: "Conta Fácil",
-	            subtitle: "Abra sua conta sem sair de casa",
-	            item_url: "http://www.bb.com.br",               
-	            image_url: "http://contaembanco.com.br/wp-content/uploads/2015/11/Ourocard-Conta-F%C3%A1cil.png",
-	          }]
-	        }
-	      }
-	    }
-	  };  
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Conta Fácil",
+            subtitle: "Abra sua conta sem sair de casa",
+            item_url: "http://abertura-web.labbs.com.br?fbId="+recipientId,               
+            image_url: "http://contaembanco.com.br/wp-content/uploads/2015/11/Ourocard-Conta-F%C3%A1cil.png",
+          }]
+        }
+      }
+    }
+  };  
 
-	  callSendAPI(messageData);
-	}
+  callSendAPI(messageData);
+}
+
+function sendProdutosServicosTemplateMessage(recipientId) {
+	console.log(SERVER_URL); 
+	var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Produtos e serviços BB",
+            subtitle: "Conheça as vantagens de ser BB",
+            item_url: "http://www.bb.com.br/pbb/pagina-inicial/voce/produtos-e-servicos",               
+            image_url: "http://minutoligado.com.br/wp-content/uploads/2013/08/gr1804136_1.png",
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
+
+function sendAcesseContaTemplateMessage(recipientId) {
+	console.log(SERVER_URL); 
+	var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Acesse sua conta",
+            subtitle: "Gerencie suas finanças",
+            item_url: "https://www2.bancobrasil.com.br/aapf/login.jsp",               
+            image_url: "http://banconet.org/wp-content/uploads/2012/04/site-bb.com_.br-segundo-passo.jpg",
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
 
 
-	function sendQuickReplyContaFacil(recipientId) {
-	  var messageData = {
-	    recipient: {
-	      id: recipientId
-	    },
-	    message: {
-	      text: "Por favor escolha uma opção válida",
-	      quick_replies: [
-	        {
-	          "content_type":"text",
-	          "title":"Abrir conta fácil",
-	          "payload":"contafacil"
-	        }
-	      ]
-	    }
-	  };
-	
-	  callSendAPI(messageData);
-	}
+
+
+function sendQuickReplyContaFacil(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Por favor escolha uma opção válida",
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title":"Abrir conta fácil",
+          "payload":"contafacil"
+        },
+        {
+            "content_type":"text",
+            "title":"Abrir conta fácil",
+            "payload":"site"
+        },
+        {
+            "content_type":"text",
+            "title":"Acesse sua conta",
+            "payload":"conta"
+        }
+      ]
+    }
+  };
+
+  callSendAPI(messageData);
+}
 
 /*
  * FIM Area Customizada
