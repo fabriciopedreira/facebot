@@ -379,7 +379,8 @@ function receivedPostback(event) {
   // let them know it was successful
   console.log("receivedPostback payload = "+payload);
   if(payload == "CONTA_FACIL"){
-	  sendContaFacilTemplateMessage(senderID);
+	  //sendContaFacilTemplateMessage(senderID);
+	  sendQuickReplyContaFacil(senderID);
   }else{
 	  sendTextMessage(senderID, "Postback called");
   }
@@ -716,7 +717,7 @@ function sendQuickReplyContaFacil(recipientId) {
         },
         {
             "content_type":"text",
-            "title":"Abrir conta fácil",
+            "title":"Produtos e Servicos",
             "payload":"site"
         },
         {
